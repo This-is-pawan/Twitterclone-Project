@@ -16,7 +16,9 @@ body {
   --background-white: #fff;
   --background-black: #000;
   --background-mid: hsl(0, 10%, 50%);
-  --background-blue: #0000ff;
+  --background-blue1: #0000ff;
+  --background-blue2: #0505bd;
+  --background-pink: #656596;
   --color-white: rgb(255, 255, 255);
   --color-black: #000;
   --color-mid: hsl(0, 10%, 50%);
@@ -33,6 +35,16 @@ body {
   --font-size-f: 1.5rem;
   --font-size-s: 1rem;
   --font-size-t: 2rem;
+  --border-: 1px solid rgb(94, 80, 80);
+}
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  
+  border-radius: 10px;
+  background: #4d4d62;
+
 }
 a {
   text-decoration: none;
@@ -51,27 +63,47 @@ h2 {
   text-transform: capitalize;
   text-align: center;
 }
-.twitter_nav {
-  /* border: 1px solid #fff; */
-  /* position: fixed; */
+.twitter_main {
+  /* border:var(--border-); */
+  margin: 2rem;
+  padding: 2rem;
+}
+.twitter_main_align {
   width: 100%;
+  /* max-width: 900px; */
+  display: grid;
+  place-items: center;
   height: auto;
-  padding: 5px;
+  border: var(--border-);
+  position: relative;
+  bottom: -2rem;
+  border-top: none;
+  z-index: 2;
+  background: var(--background-black);
+}
+.twitter_nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  background: var(--background-black);
+  opacity: 0.8;
+  /* box-shadow: 2px 2px 5px rgb(189, 96, 127); */
 }
 .twitter_nav_align {
-
+  width: 100%;
   display: flex;
-   justify-content:center;
-    justify-content:space-around; 
-   align-items: center; 
-  /* border: 1px solid #fff; */
-  padding: 10px;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .twitter_profile {
-  width: 60px;
-    height: 60px;
-    padding: 6px; 
+  width: 50px;
+  height: 50px;
+  padding: 6px;
   border-radius: 50%;
 }
 .profileImg {
@@ -79,13 +111,12 @@ h2 {
   height: 100%;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: var(--box-shadow-white);
+  
 }
-.align_upload{
+.align_upload {
   position: relative;
   top: -0.5rem;
-  border-radius:5px ;
-
+  border-radius: 5px;
 }
 
 .twitter_logo {
@@ -93,7 +124,6 @@ h2 {
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
-  
 }
 .logoImg {
   width: 100%;
@@ -104,113 +134,103 @@ h2 {
 }
 .twitter_premium h3 {
   width: 100%;
-  padding: 10px;
+
   color: var(--color-blue);
   font-family: var(--font-family-ui);
   font-weight: 400;
-  letter-spacing:0.2rem;
+  letter-spacing: 0.2rem;
   cursor: pointer;
 }
-.Twitter_container{
 
+.follower_align {
   width: 100%;
-  height: 100vh;
- background: #000;
-  /* max-width: 800px; */
-}
-.Twitter_container_align{
-  background: #252424;
-  margin: 2rem;
+  
+  line-height: 2rem;
+  border-bottom: 1px solid rgb(129, 106, 106);
+  border-top: 1px solid rgb(129, 106, 106);
   display: flex;
-  align-items: center;
   justify-content: center;
   justify-content: space-around;
-
+  /* padding: 0.5rem 0; */
+  /* line-height: 4rem; */
 }
-.ForYou h4{
+
+.empty {
+  width: 100%;
+  border: 3px solid var(--background-blue1);
+  border-radius: 1.5rem;
+  padding: 0;
+}
+.ForYou h4 {
+  cursor: pointer;
+  border-radius: 2px;
+  width: 100px;
+  text-align: center;
   color: var(--color-white);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   letter-spacing: 4px;
   padding: 5px;
+  /* border-bottom: 4px solid var(--background-blue); */
 }
-.Follower h4{
+.Follower h4 {
+  cursor: pointer;
+  border-radius: 2px;
+  width: 100px;
+  text-align: center;
   color: var(--color-white);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   letter-spacing: 4px;
   padding: 5px;
+  /* border-bottom: 4px solid var(--background-blue); */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media screen and (min-width: 500px) {
+  .twitter_nav{
+    width: 74%;
+    margin: 1px auto;
+  }
+  .twitter_logo {
+    display: none;
+  }
+  .twitter_premium {
+    display: none;
+  }
+  .twitter_profile {
+    display: none;
+  }
+
+  .twitter_nav_align {
+    line-height: 2px;
+  }
+
+  .follower_align h4 {
+    line-height: 2rem;
+    height: 42px;
+ 
+  }
+  .twitter_main_align {
+    position: relative;
+    bottom: 1rem;
+    border-top: none;
+  }
+  .follower_align{
+border: var(--border-);
+  }
+  .profileImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .textArea{
+    padding: 0 1rem;
+    letter-spacing: 2px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   background: #000;
+    font-size: 13px;
+    color: #5c5757;
+    outline: none;
+    border: none;
+    resize: none; 
+  }
+}
